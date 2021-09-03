@@ -1,11 +1,22 @@
 
 
 class Kmoney:
-    """docstring for ."""
+    """
+    Kmoney format currency
+    """
 
-    def __init__(self, number=20,ndigit=2):
-        self.number = number
-        self.ndigit = ndigit
+    def __init__(self):
+        pass
 
-    def format(self,amount=0.0,number=20,ndigit=2):
-        return str('{:{number},.{ndigit}f}'.format(number=number,ndigit=ndigit)).format(amount)
+    @staticmethod
+    def mformat(amount=0.00,ndecimal=2,num=20):
+        """
+        mformat, take the amount format it and return the string copy,
+        ndecimal is the number of decimal point, and is optional
+        num is the of digit to accept.
+        mformat(amount=0.00,ndecimal=2,num=20)
+        """
+        try:
+            return str( '{:'+str(num)+',.'+str(ndecimal)+'f}' ).format(amount).strip()
+        except Exception as e:
+            return str(e)
