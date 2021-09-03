@@ -20,6 +20,7 @@ class Sknode:
 class SklinkList:
     """
     Singly linklist
+    Abbreviation: skl
     """
     def __init__(self):
         self.head = None
@@ -34,10 +35,12 @@ class SklinkList:
     def size(self):
         """
         size()
-        Count and return total number of nodes contain in the klinlist
+        Count and return total number of nodes contain in the sklinlist
         This operation takes O(n) time and O(1) space
         """
         count = 0
+        if self.is_empty(): return count
+
         current = self.head
         while current:
             count += 1
@@ -90,6 +93,22 @@ class SklinkList:
 
         if current is not None: return index
         return None
+
+    def get_node_at_index(self,index):
+        """
+        get_node_at_index(index)
+        Lookup for node at index and return node object,
+        if found or None if not found
+        This operation takes O(n) time and O(1) space
+        """
+        if index == 0 or self.is_empty(): return self.head
+        
+        current = self.head
+        position =0
+        while position < index:
+            current = current.next_node
+            position += 1
+        return current
 
     def prepend(self,data):
         """

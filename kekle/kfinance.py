@@ -3,6 +3,7 @@
 class Kmoney:
     """
     Kmoney format currency
+    Abbreviation: kmy
     """
 
     def __init__(self):
